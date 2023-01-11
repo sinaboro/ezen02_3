@@ -1,0 +1,5 @@
+package com.ezen.ex02.board;
+
+public interface BoardService {
+
+}

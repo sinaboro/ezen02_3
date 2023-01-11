@@ -1,0 +1,20 @@
+package com.ezen.ex01;
+
+import java.util.Arrays;
+
+public class TVUser {
+
+	public static void main(String[] args) {
+		
+		System.out.println(Arrays.toString(args));
+		
+		BeanFactory factory =new BeanFactory();
+		
+	
+		tv.powerOn();
+		tv.powerOff();
+		tv.volumeUp();
+		tv.volumeDown();
+	}
+
+}

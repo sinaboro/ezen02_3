@@ -1,0 +1,6 @@
+package com.ezen.ex01;
+
+public class Member {
+	int id;
+	String name;
+}

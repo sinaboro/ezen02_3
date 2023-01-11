@@ -1,0 +1,6 @@
+package com.ezen.ex02.board;
+
+public interface BoardService {
+	//글 동록
+	void insertBoard(BoardVO vo);
+}

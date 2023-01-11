@@ -1,0 +1,7 @@
+package com.ezen.ex01;
+
+public class CollectionBeanClient {
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,12 @@
+package com.ezen.ex02.board;
+
+import java.util.List;
+
+public interface BoardService {
+	//글 동록
+	void insertBoard(BoardVO vo);
+	
+	//전체 목록검색
+	List<BoardVO> getBoardList();
+	BoardVO getBoard();
+}

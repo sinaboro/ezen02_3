@@ -1,0 +1,6 @@
+package com.ezen.ex01;
+
+public interface Speaker {
+	void volumeUp();
+	void volumeDown();
+}

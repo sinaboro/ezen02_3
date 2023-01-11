@@ -1,0 +1,10 @@
+package com.ezen.ex02.common;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class LogAdvice {
+	public void pringLog() {
+		System.out.println("[공통 로그] 비즈니스 로직 수행 전 동작");
+	}
+}

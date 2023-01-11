@@ -1,0 +1,69 @@
+package com.ezen.ex02.board.impl;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ezen.ex02.board.BoardService;
+import com.ezen.ex02.board.BoardVO;
+import com.ezen.ex02.common.LogAdvice;
+
+@Service
+public class BoardServiceImpl implements BoardService{
+
+	@Autowired
+	private BoardDAO boardDAO;
+	
+	private LogAdvice advice;
+	
+	public BoardServiceImpl() {
+		advice = new LogAdvice();
+	}
+	
+	@Override
+	public void insertBoard(BoardVO vo){
+		try {
+			boardDAO.insertBoard(vo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public List<BoardVO> getBoardList() {
+		
+		return boardDAO.getBoardList();
+	}
+
+	@Override
+	public BoardVO getBoard(int seq) {
+		return boardDAO.getBoard(seq);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

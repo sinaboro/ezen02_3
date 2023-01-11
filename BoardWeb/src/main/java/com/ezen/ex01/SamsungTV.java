@@ -1,0 +1,59 @@
+package com.ezen.ex01;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class SamsungTV  implements TV{
+	
+	Speaker speaker;
+	int price;
+	
+	public void setSpeaker(Speaker speaker) {
+		this.speaker = speaker;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public SamsungTV() {  //디폴트 생성자..
+		System.out.println("SamsungTV 객체 생성");
+	}
+
+	public SamsungTV(Speaker speaker ) {  
+		System.out.println("SamsungTV2 객체 생성");
+		this.speaker = speaker;
+	}
+
+	public SamsungTV(Speaker speaker, int price) {  
+		System.out.println("SamsungTV3 객체 생성");
+		this.speaker = speaker;
+		this.price = price;
+	}
+	
+	public void powerOn() {
+		System.out.println("SamsungTv .......전원 on ," + price);
+	}
+
+	public void powerOff() {
+		System.out.println("SamsungTv .......전원 off");
+	}
+	
+	public void volumeUp() {
+//		System.out.println("SamsungTv .......볼륨 up");
+//		speaker = new SonySpeaker();
+		speaker.volumeUp();
+	}
+	public void volumeDown() {
+//		System.out.println("SamsungTv .......볼륨 down");
+//		speaker = new SonySpeaker();
+		speaker.volumeDown();
+	}
+	
+	public void destoryMethod() {
+		System.out.println("객체 소멸시 동작하는 영역");
+	}
+	void initMethod() {
+		System.out.println("초기값 설정할 수 있는 영역");
+	}
+}

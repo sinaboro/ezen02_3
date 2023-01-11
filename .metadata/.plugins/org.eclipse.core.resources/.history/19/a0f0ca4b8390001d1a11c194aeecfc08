@@ -1,0 +1,11 @@
+package com.ezen.ex01;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class CollectionBeanClient {
+	public static void main(String[] args) {
+		AbstractApplicationContext factory = 
+				new GenericXmlApplicationContext("application.xml");
+	}
+}

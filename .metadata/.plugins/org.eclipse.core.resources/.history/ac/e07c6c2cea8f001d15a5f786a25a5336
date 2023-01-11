@@ -1,0 +1,23 @@
+package com.ezen.ex01;
+
+public class SamsungTV  implements TV{
+	
+	public SamsungTV() {
+		System.out.println("SamsungTV 객체 생성");
+	}
+	public void powerOn() {
+		System.out.println("SamsungTv .......전원 on");
+	}
+
+	public void powerOff() {
+		System.out.println("SamsungTv .......전원 off");
+	}
+	
+	public void volumeUp() {
+		System.out.println("SamsungTv .......볼륨 up");
+	}
+	public void volumeDown() {
+		System.out.println("SamsungTv .......볼륨 down");
+	}
+	
+}

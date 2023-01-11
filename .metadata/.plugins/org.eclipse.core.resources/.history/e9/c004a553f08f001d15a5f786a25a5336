@@ -1,0 +1,31 @@
+package com.ezen.ex01;
+
+public class SamsungTV  implements TV{
+	
+	public SamsungTV() {  //디폴트 생성자..
+		System.out.println("SamsungTV 객체 생성");
+	}
+	
+	public void destoryMethod() {
+		System.out.println("객체 소멸시 동작하는 영역");
+	}
+	void initMethod() {
+		System.out.println("초기값 설정할 수 있는 영역");
+	}
+	
+	public void powerOn() {
+		System.out.println("SamsungTv .......전원 on");
+	}
+
+	public void powerOff() {
+		System.out.println("SamsungTv .......전원 off");
+	}
+	
+	public void volumeUp() {
+		System.out.println("SamsungTv .......볼륨 up");
+	}
+	public void volumeDown() {
+		System.out.println("SamsungTv .......볼륨 down");
+	}
+	
+}
