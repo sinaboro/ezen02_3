@@ -1,3 +1,9 @@
 INDEX VERSION 1.131
+C:\Works3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1860465580.index
+\MybitisTests\src\main\java
 C:\Works3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2806564625.index
 \BoardWeb\src\main\java
+C:\Works3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3178133098.index
+\ex00\src\main\java
+C:\Works3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2000626727.index
+\MybatisTests\src\main\java
