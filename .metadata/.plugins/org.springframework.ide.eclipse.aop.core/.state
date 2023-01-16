@@ -3,5 +3,6 @@
 <aop-project name="BoardWeb"/>
 <aop-project name="ex00"/>
 <aop-project name="ex01"/>
+<aop-project name="ex02"/>
 <aop-project name="MybatisTests"/>
 </aop-reference-model>

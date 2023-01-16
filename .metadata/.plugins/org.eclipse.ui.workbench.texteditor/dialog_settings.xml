@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="password"/>
+		<item key="selection" value="doD"/>
 		<list key="findhistory">
+			<item value="DoD"/>
+			<item value="Do"/>
+			<item value="DriverClassName"/>
 			<item value="password"/>
 			<item value="username"/>
 			<item value="jdbcUrl"/>
