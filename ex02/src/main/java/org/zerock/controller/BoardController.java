@@ -35,6 +35,11 @@ public class BoardController {
 		model.addAttribute("list", service.getList());
 		log.info(service.getList());
 	}
+
+	@GetMapping("/register")
+	public void register() {
+		
+	}   //WEB-INF/views/board/register.jsp
 	
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr) {

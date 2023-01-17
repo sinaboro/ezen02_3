@@ -11,7 +11,7 @@
   
   
   <select id="getList" resultType="org.zerock.domain.BoardVO">
-    select * from tbl_board where bno > 0
+    select * from tbl_board where bno > 0  order by bno desc
   </select>
   
   <insert id="insert">
