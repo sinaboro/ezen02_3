@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
 import org.zerock.mapper.BoardMapperTests;
 
 import lombok.extern.log4j.Log4j;
@@ -56,9 +57,8 @@ public class BoardServiceTests {
 	public void testGetList() {
 //		List<BoardVO> boardVO= boardService.getList();
 //		boardVO.forEach(n->log.info(n));
-		
-		boardService.getList().forEach(n->log.info(n));
-		
+		Criterial cri = new Criterial(3,15);
+		boardService.getList(cri).forEach(n->log.info(n));
 		
 	}
 	

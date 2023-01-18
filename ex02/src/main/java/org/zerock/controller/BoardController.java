@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
+import org.zerock.domain.PageDTO;
 import org.zerock.mapper.BoardMapper;
 import org.zerock.service.BoardService;
 
@@ -30,10 +32,10 @@ public class BoardController {
 	 */
 	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list(Criterial cri,  Model model) {
 //		List<BoardVO> list = service.getList();
-		model.addAttribute("list", service.getList());
-		log.info(service.getList());
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri, 123)); //현재페이지, 페이지당 화면상 보여지는 레코드 수, 전체카운트
 	}
 
 	@GetMapping("/register")
@@ -50,12 +52,13 @@ public class BoardController {
 	}
 	
 	
-	@GetMapping("/get")
+	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info("/get..........");
 		model.addAttribute("board", service.get(bno));
 		// WEB-INF/views/board/get.jsp 찾아간다.
 	}
+
 	
 	@PostMapping("/modify")
 	public String modify(BoardVO board, RedirectAttributes rttr) {

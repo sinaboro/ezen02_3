@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
 
 import lombok.extern.log4j.Log4j;
 
@@ -76,7 +77,14 @@ public class BoardMapperTests {
 		log.info("result : " + result);
 	}
 	
-	
+	@Test
+	public void getListWithPagin() {
+		Criterial cri = new Criterial(3,15);
+		
+		List<BoardVO> list= mapper.getListWithPagin(cri);
+		
+		list.forEach(n->log.info(n));
+	}
 	
 	
 	
