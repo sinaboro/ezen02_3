@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +36,10 @@ public class BoardController {
 	public void list(Criterial cri,  Model model) {
 //		List<BoardVO> list = service.getList();
 		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri, 123)); //현재페이지, 페이지당 화면상 보여지는 레코드 수, 전체카운트
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123)); //현재페이지, 페이지당 화면상 보여지는 레코드 수, 전체카운트
+		
+		int total = service.getTotal(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri, total)); 
 	}
 
 	@GetMapping("/register")
@@ -53,7 +57,7 @@ public class BoardController {
 	
 	
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criterial cri, Model model) {
 		log.info("/get..........");
 		model.addAttribute("board", service.get(bno));
 		// WEB-INF/views/board/get.jsp 찾아간다.
@@ -61,23 +65,30 @@ public class BoardController {
 
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, @ModelAttribute("cri") Criterial cri, RedirectAttributes rttr) {
 		log.info("/modify......");
 		
 		if(service.modify(board)) {
 			rttr.addAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		
 		return "redirect:/board/list";  //PRG
 	}
 	
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criterial cri, RedirectAttributes rttr) {
 		log.info("/remove......");
 		
 		if(service.remove(bno)) {
 			rttr.addAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		return "redirect:/board/list";  //PRG
 	}
 	

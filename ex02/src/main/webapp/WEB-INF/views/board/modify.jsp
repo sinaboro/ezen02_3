@@ -21,7 +21,10 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         
-                        <form role="form" action="/board/modify" method="post">   	
+                        <form role="form" action="/board/modify" method="post"> 
+                        	<input type="hidden" name="pageNum" value="${cri.pageNum}">
+                            <input type="hidden" name="amount" value="${cri.amount}">
+                              	
                            	<div class="form-group">
                            		<label>Bno</label> <input name="bno" class="form-control" 
                            		value="${board.bno}" readonly="readonly">
@@ -78,9 +81,16 @@
 			}else if(operation === 'list'){
 				//self.location = "/board/list";
 				formObj.attr("action", "/board/list").attr("method", "get");
-				formObj.empty();				
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var pageAmountTag = $("input[name='Amount']").clone();
+				
+				formObj.empty();
+				formObj.append(pageNumTag);
+				formObj.append(pageAmountTag);
+				
 			}
 			formObj.submit();
+			
 		});
 	});
 </script>

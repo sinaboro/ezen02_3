@@ -87,7 +87,26 @@ public class BoardMapperTests {
 	}
 	
 	
-	
+	@Test
+	public void testSearch() {
+		Criterial cri = new Criterial();
+		
+		cri.setKeyword("신용권");
+		cri.setType("W");
+		
+		List<BoardVO> list = mapper.getListWithPagin(cri);
+		list.forEach(n -> log.info(n));
+	}
+
+	@Test
+	public void testGetTotalCount() {
+		Criterial cri = new Criterial();
+		
+		cri.setKeyword("신용권");
+		cri.setType("W");
+		
+		log.info(" ======= > " + mapper.getTotalCount(cri));
+	}
 	
 	
 	
