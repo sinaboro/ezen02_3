@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
+import org.zerock.domain.pageDTO;
 import org.zerock.service.BoardService;
 
 import lombok.extern.log4j.Log4j;
@@ -24,9 +26,15 @@ public class BoardController {
 	private BoardService service;
 	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list(Criterial cri,  Model model) {
 		log.info("list==============>");
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new pageDTO(cri, 123));
+	}
+	
+	@GetMapping("/register")
+	public void register() {
+		
 	}
 	
 	@PostMapping("/register")
@@ -44,14 +52,14 @@ public class BoardController {
 		log.info("modify===> ");
 		
 		if(service.modify(board)) {
-			rttr.addFlashAttribute("result","success");
+			rttr.addFlashAttribute("result","modify");
 		}
 		return "redirect:/board/list";
 	}
 	
-	@GetMapping("/get")
-	public void get(@RequestParam("bno") Long bno, Model model) {
-		log.info("get======> ");
+	@GetMapping({"/get", "/modify"})
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criterial cri, Model model) {
+		log.info("get or modify ======> ");
 		model.addAttribute("board", service.get(bno));
 	}
 
@@ -60,7 +68,7 @@ public class BoardController {
 		log.info("remove===> ");
 		
 		if(service.remove(bno)) {
-			rttr.addFlashAttribute("result","success");
+			rttr.addFlashAttribute("result","delete");
 		}
 		return "redirect:/board/list";
 	}

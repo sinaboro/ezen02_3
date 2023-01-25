@@ -42,6 +42,18 @@ public class BoardControllerTests {
 	}
 
 	@Test
+	public void testList2() throws Exception {
+		log.info(
+				mockMvc.perform(MockMvcRequestBuilders.get("/board/list")
+				.param("pagaNum", "2")
+				.param("amount", "15"))
+				.andReturn()
+				.getModelAndView()
+				.getModelMap()
+				);
+	}
+
+	@Test
 	public void testResiter() throws Exception {
 		log.info(
 				mockMvc.perform(MockMvcRequestBuilders.post("/board/register")

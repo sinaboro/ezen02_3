@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criterial;
 import org.zerock.mapper.BoardMapper;
 
 @Service
@@ -34,8 +35,8 @@ public class BoardServiceimpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> getList() {
-		return boardMapper.getList();
+	public List<BoardVO> getList(Criterial cri) {
+		return boardMapper.getListWithPaging(cri);
 	}
 
 }
