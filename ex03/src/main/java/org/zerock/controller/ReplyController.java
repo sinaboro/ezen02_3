@@ -49,7 +49,7 @@ public class ReplyController {
 	public ResponseEntity<List<ReplyVO>> getList(
 			@PathVariable("page") int page,
 			@PathVariable("bno") Long bno){
-		
+		log.info("getList=========>");
 		Criterial cri = new Criterial(page, 10);
 		return new ResponseEntity<List<ReplyVO>>(service.getList(cri, bno), HttpStatus.OK);
 	}
