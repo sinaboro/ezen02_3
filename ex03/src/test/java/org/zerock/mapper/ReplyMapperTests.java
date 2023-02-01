@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 
 public class ReplyMapperTests {
 	
-	private Long[] bnoArr= {7013661L,7013656L,7013655L,7013654L,7013653L};
+	private Long[] bnoArr= {7013656L,7013656L,7013655L,7013654L,7013653L};
 	
 	@Autowired
 	private ReplyMapper mapper;
@@ -65,8 +65,19 @@ public class ReplyMapperTests {
 	}
 	
 	
+	@Test
+	public void testGetListWithPaging2() {
+		
+		log.info("vo ==> " + 
+		mapper.getListWithPaging(new Criterial(2,5), bnoArr[0]));
+	}
 	
 	
+	@Test
+	public void testGetCountByBno() {
+		log.info("count ==> " + 
+	mapper.getCountByBno(7013656L));
+	}
 	
 	
 	

@@ -109,7 +109,24 @@ var replyService  =  ( function(){
             var dd = dateObj.getDate();
             return [yy, '/', (mm>9? '' : '0')+mm, '/', (dd>9? '' : '0')+dd ].join('');
         }
-    }
+    }  //end displayTime
+    
+    function getList(param, callback, error){
+    	var bno = param.bno;
+    	var page = param.page || 1;
+    	
+    	$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+    		function(data){
+    			if(callback){
+    				callback(data.replyCnt, data.list);
+    			}
+    		}).fail(function(xhr, status, err){
+    			if(error){
+    				error(err);
+    			}
+    		});
+    }  //end getList
+
 
    return {
         add : add,
