@@ -30,8 +30,16 @@ class="org.zerock.security.CustomUserDetailsService"></bean>
 	
 	<security:logout logout-url="/customLogout" invalidate-session="true" />
 		
-	</security:http>
+	<security:remember-me
+		data-source-ref="dataSource" token-validity-seconds="604800"/>
 		
+	<security:logout logout-url="/customLogout"
+		invalidate-session="true" delete-cookies="remember-me, JSESSION_ID"/>
+	</security:http>
+	
+	
+		
+
 	<security:authentication-manager>
 		
 		<security:authentication-provider user-service-ref="customUserDetailsService">

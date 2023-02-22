@@ -40,7 +40,7 @@ public class ReplyMapperTests {
 	@Test
 	public void testRead() {
 //		ReplyVO vo =  mapper.read(1L);
-		log.info("vo ==> " + mapper.read(1L));
+		log.info("vo ==> " + mapper.read(12L));
 	}
 
 	@Test
